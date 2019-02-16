@@ -83,5 +83,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  routes.default_url_options = { :host => 'heroku.com' }
+  routes.default_url_options = { :host => 'https://sponte.herokuapp.com/' }
 end
