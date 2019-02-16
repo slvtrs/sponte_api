@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_id: one
+  bio: MyString
+  window_start_at: MyString
+  window_end_at: MyString
+
+two:
+  device_id: two
+  bio: MyString
+  window_start_at: MyString
+  window_end_at: MyString
