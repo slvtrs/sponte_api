@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
-    render json: @profile
+    render json: {profile: @profile, posts: Post.mutate(@profile.posts)}
   end
 
   # POST /profiles

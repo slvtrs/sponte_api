@@ -15,19 +15,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    puts '==========='
-    # puts post_params[:fiel]
-    puts params.inspect
-
-    # @post = Post.new(post_params)
-    # if @post.save
-    #   render json: @post, status: :created, location: @post
-    # else
-    #   render json: @post.errors, status: :unprocessable_entity
-    # end
-
     @post = @device.profile.posts.build()
-    # @post.update_attributes(file: params[:file])
     @post.file.attach(params[:file])
     if @post.save
       render json: @post, status: :created, location: @post
