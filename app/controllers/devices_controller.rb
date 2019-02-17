@@ -47,6 +47,7 @@ class DevicesController < ApplicationController
       render json: {error: message}, status: 401  # Authentication timeout
     else
       if @device.update(device_params)
+        @device.save!
         render json: @device
       else
         render json: @device.errors, status: :unprocessable_entity
