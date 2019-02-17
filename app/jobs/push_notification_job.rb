@@ -7,9 +7,9 @@ class PushNotificationJob < ApplicationJob
     # client = Exponent::Push::Client.new(gzip: true)  # for compressed, faster requests
 
     messages = []
-    profile.devices.where.not(token: nil).each do |device|
+    profile.devices.where.not(push_token: nil).each do |device|
       messages << {
-        to: "ExponentPushToken[#{device.token}]",
+        to: device.push_token,
         sound: "default",
         body: "Time to post!"
       }
