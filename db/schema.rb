@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_034800) do
+ActiveRecord::Schema.define(version: 2019_02_17_063640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_034800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "profile_id"
+    t.string "push_token"
     t.index ["profile_id"], name: "index_devices_on_profile_id"
   end
 
