@@ -9,7 +9,8 @@ class Post < ApplicationRecord
         id: post.id,
         profile_id: post.profile.id,
         file: post.file,
-        url: Rails.application.routes.url_helpers.rails_blob_url(post.file, only_path: true)
+        url: Rails.application.routes.url_helpers.rails_blob_url(post.file, only_path: true),
+        created_at: post.created_at
       }
     end
     array

@@ -12,8 +12,11 @@ task :send_push_notifications => :environment do
     if profile.window_start_at && profile.window_start_at
       time_zone = profile.get_time_zone
       current_hour = Time.now.in_time_zone(time_zone).hour.to_i
-      if (
-        current_hour > profile.window_start_at.to_i && 
+      if ( profile.invert_window &&
+        current_hour >= profile.window_end_at.to_i &&
+        current_hour < profile.window_start_at.to_i
+      ) || ( !profile.invert_window &&
+        current_hour >= profile.window_start_at.to_i && 
         current_hour < profile.window_end_at.to_i
       )
         # if profile.last_notified_at

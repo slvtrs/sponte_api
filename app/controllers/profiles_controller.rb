@@ -82,6 +82,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def profile_params
-      params.require(:profile).permit(:device_id, :bio, :window_start_at, :window_end_at)
+      params.require(:profile).permit(:device_id, :bio, :window_start_at, :window_end_at, :invert_window)
     end
 end
