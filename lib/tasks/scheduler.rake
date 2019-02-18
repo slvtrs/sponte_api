@@ -7,6 +7,7 @@ desc "This task is called by the Heroku scheduler add-on"
 # end
 
 task :send_push_notifications => :environment do
+  puts 'push notif from scheduler'
   Profile.all.each do |profile|
     if profile.window_start_at && profile.window_start_at
       time_zone = profile.get_time_zone

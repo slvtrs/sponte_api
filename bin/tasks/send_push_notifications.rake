@@ -1,5 +1,6 @@
 desc 'send push notificaions'
 task send_push_notificaions: :environment do
+  puts 'push notif from rake task'
   Profile.all.each do |profile|
     if profile.window_start_at && profile.window_start_at
       time_zone = profile.get_time_zone
