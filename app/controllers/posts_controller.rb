@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post
+    render json: {post: Post.mutate([@post])[0]}
   end
 
   # POST /posts
@@ -18,7 +18,8 @@ class PostsController < ApplicationController
     @post = @device.profile.posts.build()
     @post.file.attach(params[:file])
     if @post.save
-      render json: @post, status: :created, location: @post
+      post = Post.mutate([@post])[0]
+      render json: {success: true, post: post, status: :created, location: @post}
     else
       render json: @post.errors, status: :unprocessable_entity
     end
