@@ -15,9 +15,10 @@ class PushNotificationJob < ApplicationJob
         messages << {
           to: device.push_token,
           sound: "default",
-          title: "Time to post!",
-          body: "Only 60 seconds before your window closes",
-          ttl: 60,
+          title: "Window Open!",
+          # body: "Post in the next 5 min or ",
+          body: "",
+          ttl: 60*5,
           priority: 'high',
           # data: { url: url }
         }
