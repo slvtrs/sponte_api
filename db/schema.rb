@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_18_023932) do
+ActiveRecord::Schema.define(version: 2019_02_19_163725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_02_18_023932) do
     t.datetime "updated_at", null: false
     t.string "time_zone"
     t.boolean "invert_window", default: false
+    t.datetime "last_window_at"
+    t.datetime "next_window_at"
   end
 
 end
