@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
 
   private
   def print_params
-    puts '--------------------------------'
+    # puts '--------------------------------'
   end
   
   def set_device_from_token

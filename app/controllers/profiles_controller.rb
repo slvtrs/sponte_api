@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile_from_token, only: [:self, :update, :destroy]
 
   def self
-    render json: {profile: @profile, posts: Post.mutate(@profile.posts)}
+    render json: {profile: @profile, posts: Post.mutate(@profile.posts), ftue: @ftue}
   end
 
   # GET /profiles
@@ -65,11 +65,13 @@ class ProfilesController < ApplicationController
       if @device
         @device.touch # update device timestamp
         @profile = @device.profile
+        @ftue = false
       else
         @profile = Profile.new
         if @profile.save!
           @device = @profile.devices.build(installation_id: token)
           @device.save!
+          @ftue = true
         end
       end
     end
